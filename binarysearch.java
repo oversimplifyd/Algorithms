@@ -2,7 +2,7 @@ package algorithms;
 /**
 * Binary Search 
 * Worst Case 0(logn)
-* floorIndex, CeilingIndex borders the input size for conveneince. 
+* floorIndex, CeilingIndex borders the input size for conveneince.  #Bang
  */
 
 class BinarySearch {
