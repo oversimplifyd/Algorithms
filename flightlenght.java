@@ -41,6 +41,8 @@ public class FlightLength {
         
         //Second Approach 
         // O(2n + nLogn) = nLogn
+        // Better if MovieLength is sorted OR
+        // if we need to optimize for space over runtime 
        /* Arrays.sort(movieLengths);
         for (int i =0; i < movieLengths.length - 1; i++) {
           

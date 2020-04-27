@@ -34,7 +34,7 @@ import org.junit.runner.notification.Failure;
 
 import static org.junit.Assert.*;
 
-public class SticjOruces {
+public class StockPrices {
 
     public static int getMaxProfit(int[] stockPrices) {
         
