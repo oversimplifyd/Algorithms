@@ -5,11 +5,102 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.ArrayList; 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class CheckBalancedTree {
     
     public static class BinaryTreeNode {
+
+        public int value;
+        public BinaryTreeNode left;
+        public BinaryTreeNode right;
+
+        public BinaryTreeNode(int value) {
+            this.value = value;
+        }
+
+        public BinaryTreeNode insertLeft(int leftValue) {
+            this.left = new BinaryTreeNode(leftValue);
+            return this.left;
+        }
+
+        public BinaryTreeNode insertRight(int rightValue) {
+            this.right = new BinaryTreeNode(rightValue);
+            return this.right;
+        }
+    }
+    
+    public static class BinaryTreeNodePair {
+        
+        public BinaryTreeNode node; 
+        public int depth;
+        
+        public BinaryTreeNodePair(BinaryTreeNode n, int depth) {
+            this.node = n; 
+            this.depth = depth; 
+        }
+    }
+    
+    //O(n0 time O(nO space )
+    public static boolean isBalanced(BinaryTreeNode treeRoot) {
+        
+        if (treeRoot == null) {
+            return true;
+        }
+        
+        Deque<BinaryTreeNodePair> nodes = new ArrayDeque<>();
+        List<Integer> depths = new ArrayList<>(3);
+        
+        nodes.push(new BinaryTreeNodePair(treeRoot, 0));
+        
+        while (! nodes.isEmpty()) {
+            
+            BinaryTreeNodePair currentNodePair = nodes.pop();
+            
+            BinaryTreeNode currentNode = currentNodePair.node;
+            int depth = currentNodePair.depth; 
+            
+            if (currentNode.left == null && currentNode.right == null) {
+                
+                // We found a leaf 
+                //check if leaf depth is already in list, if not add. 
+                
+                if (!depths.contains(depth)) {
+                    depths.add(depth);
+                    
+                    if (depths.size() > 2 || (depths.size() == 2 && Math.abs(depths.get(0) - depths.get(1)) > 1)) {
+                        return false; 
+                    }
+                }
+                
+                //Since we are checking to see if no depth difference is greater than 1
+                //This is also means once we have a list of depths with three distinct values, it can return false OR
+                // If the difference betwen any two valu is more than 1 we return false. 
+               
+            } else {
+                if (currentNode.left != null) {
+                    nodes.push(new BinaryTreeNodePair(currentNode.left, depth + 1));
+                }
+                
+                 if (currentNode.right != null) {
+                    nodes.push(new BinaryTreeNodePair(currentNode.right, depth + 1));
+                }
+            }
+        }
+        
+        return true; 
+    }
+    
+    // My Solution... 
+    // Brute force 
+    // memory intensive 
+    /*public static class BinaryTreeNode {
 
         public int value;
         public BinaryTreeNode left;
@@ -44,11 +135,6 @@ public class CheckBalancedTree {
     
     public static boolean isBalanced(BinaryTreeNode treeRoot) {
         
-        int lastKnownLength = 0;
-        
-        int negativeDiff = 0; 
-        int positiveDiff = 0;
-        
         int min = 0;
         int max = 0;
         
@@ -80,7 +166,7 @@ public class CheckBalancedTree {
                 currentNodeLengthFromRoot++;
             } else {
                   
-                if (currentNode.right == null && currentNode.left == null) {                    
+                if (currentNode.right == null && currentNode.left == null) {                    //LeafNode 
                     if (currentNodeLengthFromRoot > max) {
                         max = currentNodeLengthFromRoot;
                     }
@@ -94,6 +180,9 @@ public class CheckBalancedTree {
                             min = currentNodeLengthFromRoot;
                         }
                     }
+                    
+                    if ((max - min) > 1) return false;  //ShortCircuting..
+                    
                 }
                 BinaryTreeNode tempNode = currentNode;
                 currentNode = tempNode.parentNode;
@@ -102,7 +191,7 @@ public class CheckBalancedTree {
         }
         
         return (max - min) <= 1;
-    }
+    }*/
 
     // tests
 
