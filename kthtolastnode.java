@@ -52,6 +52,43 @@ public class KthTolastNode {
         return currentNode;
     }
 
+    //econdApproach 
+    //Using two pointers 
+    // One starts at k 
+    //The other starts at head and keeps moving until the one that starts at k gets to the end. 
+    
+    
+    public static LinkedListNode kthToLastNode2(int k, LinkedListNode head) {
+
+        // return the kth to last node in the linked list
+        if (k == 0) {
+            throw new IllegalArgumentException("Invalid");
+        }
+        
+        LinkedListNode rightNode = head; 
+        
+        int listSize = 0; 
+        
+        for (int i = 0; i < k  - 1; i++) {
+            //Make right node starts at K 
+             if (rightNode.next == null) {
+                    throw new IllegalArgumentException(
+                            "k is larger than the length of the linked list: " + k);
+             }
+             
+            rightNode = rightNode.next; 
+        }
+        
+        LinkedListNode leftNode = head; 
+        
+        while (rightNode.next != null) {
+            leftNode = leftNode.next; 
+            rightNode = rightNode.next; 
+        }
+        
+        return leftNode; 
+    }
+    
     // tests
 
     @Test
