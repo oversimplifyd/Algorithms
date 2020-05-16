@@ -9,9 +9,9 @@ class ShiftedArraySearch {
 
      public static void main(String[] args) {
 
-         int[] items =  {30, 77, 94, 1, 2, 3, 4, 8, 11, 13};
+         int[] items =  {1, 2};
 
-         int searchValue = 77;
+         int searchValue = 2;
 
          System.out.println(searchShiftedAray(items, searchValue));
      }
