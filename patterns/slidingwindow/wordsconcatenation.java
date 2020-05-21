@@ -35,26 +35,22 @@ class WordConcatenation {
         String contiguousRunningChars = str.substring(windowStart, windowEnd+1);
         if (wordFreqMap.containsKey(contiguousRunningChars)) {
 
-          wordFreqMap.put(contiguousRunningChars, wordFreqMap.get(contiguousRunningChars) - 1);
           if (wordFreqMap.get(contiguousRunningChars) == 0) {
-            matches++; 
+            firstMatchIndex = windowEnd - wordLength + 1;
           } else {
-               firstMatchIndex = windowEnd - wordLength + 1;
+            wordFreqMap.put(contiguousRunningChars, wordFreqMap.get(contiguousRunningChars) - 1);
+            matches++;
           }
         }
 
         if (matches == wordArrayLength && windowEnd - firstMatchIndex + 1 == totalAllowableWords) {
           //We have a first match 
           resultIndices.add(firstMatchIndex);
+          
+          String removeStringfromSeen = str.substring(firstMatchIndex, firstMatchIndex+wordLength);
 
-          String removeStringfromSeen = str.substring(firstMatchIndex, firstMatchIndex+3);
-
-          if (wordFreqMap.containsKey(removeStringfromSeen)) {
-            if (wordFreqMap.get(removeStringfromSeen) == 0) {
-                 matches--; 
-            }
-            wordFreqMap.put(removeStringfromSeen, wordFreqMap.get(removeStringfromSeen) + 1);
-          }
+          matches--; 
+          wordFreqMap.put(removeStringfromSeen, wordFreqMap.get(removeStringfromSeen) + 1);
 
           firstMatchIndex = windowEnd - wordLength + 1;
         }
@@ -62,15 +58,15 @@ class WordConcatenation {
         windowStart++;
       }
 
-    } // catcatfox cat fox 
+    }
     return resultIndices;
   }
 
   public static void main(String[] args) {
     List<Integer> result = findWordConcatenation("catfoxcatcatfoxcatfoxcat", new String[] { "cat", "fox" });
     System.out.println(result);
-    // result = WordConcatenation.findWordConcatenation("catcatfoxfox", new String[] { "cat", "fox" });
-    // System.out.println(result);
+    result = WordConcatenation.findWordConcatenation("catcat", new String[] { "cat", "fox" });
+    System.out.println(result);
   }
 }
 
