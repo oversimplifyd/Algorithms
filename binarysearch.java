@@ -11,7 +11,7 @@ class BinarySearch {
 
          int[] items =  {1, 2, 3, 4, 8, 11, 13, 30, 77, 94};
 
-         int searchValue = 13;
+         int searchValue = 133;
 
          System.out.println(bSearch(items, searchValue));
      }

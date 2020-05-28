@@ -44,7 +44,7 @@ class RearrangeList {
     }
 
     if (current != null) {
-      current = null; 
+      current.next = null; 
     }
   }
 
