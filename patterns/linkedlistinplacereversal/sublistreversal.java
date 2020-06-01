@@ -3,6 +3,7 @@ package algorithms;
 /**
 Given the head of a LinkedList and two positions ‘p’ and ‘q’, reverse the LinkedList from position ‘p’ to ‘q’.
  */
+ 
 import java.util.*;
 
 class ListNode {
@@ -36,7 +37,7 @@ class ReverseSubList {
     ListNode nextNode = null; 
     ListNode previousNode = null;
 
-    ListNode currentNode = floorNode.next; 
+    ListNode currentNode = current;
 
     // pth node 
     ListNode startNode = currentNode; 
