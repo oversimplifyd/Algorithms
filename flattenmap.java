@@ -16,7 +16,6 @@ class Solution {
    }
   
   static HashMap<String, String> flattenRecursive(String key, HashMap<String, Object> dict, HashMap<String, String> finalOutput) {
-   
     
     for (Map.Entry<String, Object> entry: dict.entrySet()) {
       String keyToUse = key; 
