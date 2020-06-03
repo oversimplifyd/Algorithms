@@ -1,3 +1,7 @@
+// All Paths to a given sum 
+// Runtime O(NLogN) 
+// Where N is the total number of paths we are stroing and logn is the time required to copy nodes for a new path 
+// 
 import java.util.*;
 
 class TreeNode {
@@ -28,6 +32,8 @@ class FindAllTreePaths {
     seenPaths.add(root.val); 
 
     if (root.val == sum && root.left == null && root.right == null) {
+        // Copy operation 
+        //There can only be a maximum of logN nodes atthis time 
       allPaths.add(new ArrayList<Integer>(seenPaths));
     } else {
       if (root.left != null) {
