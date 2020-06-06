@@ -12,9 +12,6 @@ class Permutations {
     List<List<Integer>> result = new ArrayList<>();
     
     // This follow a typical in order level traversal (BFS) 
-    // for each of the items in the array 
-    // push the item to a permutation sublist  
-    // current permutation should hold on the recent result at each number 
     Queue<List<Integer>> permutations = new LinkedList<>(); 
 
     permutations.offer(new ArrayList<>()); 
