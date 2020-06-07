@@ -1,0 +1,23 @@
+Important properties of XOR to remember #
+Following are some important properties of XOR to remember:
+
+Taking XOR of a number with itself returns 0, e.g.,
+
+1 ^ 1 = 0
+29 ^ 29 = 0
+Taking XOR of a number with 0 returns the same number, e.g.,
+
+1 ^ 0 = 1
+31 ^ 0 = 31
+XOR is Associative & Commutative, which means:
+
+if the two numbers are the different 
+3 ^ 2  -> Gets the difference 1 
+2 ^ 3 -> Gets the sum -> 5 
+2 ^ 3 ^ 3 -> 2 ( 2 + 3 = 5 - 3 = 2 )
+
+(a ^ b) ^ c = a ^ (b ^ c)
+a ^ b = b ^ a
+In the following chapters, we will apply the XOR pattern to solve some interesting problems.
+
+XOR can help prevent Integer over flow errors. 
