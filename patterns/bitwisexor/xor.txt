@@ -11,13 +11,31 @@ Taking XOR of a number with 0 returns the same number, e.g.,
 31 ^ 0 = 31
 XOR is Associative & Commutative, which means:
 
-if the two numbers are the different 
-3 ^ 2  -> Gets the difference 1 
-2 ^ 3 -> Gets the sum -> 5 
-2 ^ 3 ^ 3 -> 2 ( 2 + 3 = 5 - 3 = 2 )
-
 (a ^ b) ^ c = a ^ (b ^ c)
 a ^ b = b ^ a
 In the following chapters, we will apply the XOR pattern to solve some interesting problems.
 
+XOR of a number with its complement returns all the bits set to 1. 
+Similarly, XOR number with another number having all of it bit set gives the number complement 
+number ^ all_bits_set = complement
+number ^ complement = all_bits_set 
+number ^ number = 0 
+0 ^ number = number 
+
+XOR a bit with 1 gives its complement 0 ^ 1 -> 1, 1 ^ 1 -> 0 
+
 XOR can help prevent Integer over flow errors. 
+
+Finding the rightmost set bit  of  number using ~ 
+E.g. 
+6  & ~(6 - 1)
+Gien number is 6 -> 110 
+Subtracted is 5 -> 101 
+~5 -> 010 
+110 & 010 -> 010 
+Right most set bit = 10  
+E.g. 2 
+12 & ~(2 - 1) 
+12 -> 1011
+~ 11 -> 0100
+12 & ~11  -> 0100 
