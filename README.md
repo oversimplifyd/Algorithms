@@ -1,2 +1,2 @@
-# ICake
+# Algorithms. 
 ## DS & Algorithms. 
