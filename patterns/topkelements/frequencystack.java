@@ -10,7 +10,7 @@ class Entry {
   public int freq; 
   public int order; 
   public int num; 
-
+  
   public Entry(int num, int freq, int order) {
     this.freq = freq;
     this.order = order; 
@@ -36,8 +36,8 @@ class FrequencyStack {
   int initialOrder = 0; 
 
   public void push(int num) {
-    freqMap.put(num, freqMap.getOrDefault(num , 0) + 1); 
-    maxHeapFreq.offer(new Entry(num, freqMap.get(num), initialOrder++));
+    freqMap.put(num, freqMap.getOrDefault(num , 0) + 1);   // O(1)
+    maxHeapFreq.offer(new Entry(num, freqMap.get(num), initialOrder++));  /// LogN
   }
 
   public int pop() {
