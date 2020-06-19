@@ -1,0 +1,5 @@
+Problemswith Overlapping subproblems 
+1. Brute-force -> Recursion 
+2. Top-Down DP -> Recursion + Memoization. Most times reduces time/space comlexity from exponential to quadratic. 
+3. Bottom-Up DP -> Tabularization -> Quadratic 
+
