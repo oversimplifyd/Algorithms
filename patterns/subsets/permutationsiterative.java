@@ -11,6 +11,8 @@ class Permutations {
   public static List<List<Integer>> findPermutations(int[] nums) {
     List<List<Integer>> result = new ArrayList<>();
     
+    //[, 1]
+    // 
     // This follow a typical in order level traversal (BFS) 
     Queue<List<Integer>> permutations = new LinkedList<>(); 
 
