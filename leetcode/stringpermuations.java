@@ -2,13 +2,13 @@ package algorithms;
 
 import java.util.*; 
 
-class Permutations  {
+class Subsets  {
 
     //Just the way we do BFS with queues 
     // O(2^N) 
     //O(2^N) 
     
-    public static List<String> getPermutations(String s) {
+    public static List<String> getSubsets(String s) {
         List<String> subsets = new ArrayList<>();
         subsets.add("");
 
@@ -28,6 +28,6 @@ class Permutations  {
 
     public static void main(String[] args) {
         String s = "abc";
-        System.out.println(getPermutations(s));
+        System.out.println(getSubsets(s));
     }
 }
