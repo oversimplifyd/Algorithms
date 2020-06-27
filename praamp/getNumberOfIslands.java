@@ -40,6 +40,7 @@ class Solution {
     return counter; 
   }
   
+  // Using BFS, where the connected ISLANDs are thought of as undirected acyclic graph.v
   static void markAsSeen(int[][] binaryMatrix, int rows, int cols, int row, int col) {
     
     Deque<Cell> queue = new ArrayDeque<>();
