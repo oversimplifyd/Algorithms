@@ -1,9 +1,9 @@
-package algorithms;
-
 /**
 Breaking Problems into smaller sub problems (Divide n Conquer) 
 Replacing recursion with iteration to save time and sapce due to Call Stack frames. 
- */
+*/
+
+package algorithms;
 
 import org.junit.Test;
 import org.junit.runner.JUnitCore;

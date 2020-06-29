@@ -1,6 +1,12 @@
-package algorithms;
+/**
+Given an array of integers, find the highest product you can get from three of the integers.
 
-//Negative numbers are to b given good consideration in solving this type of problems 
+The input arrayOfInts will always have at least three integers.
+
+Negative numbers are to b given good consideration in solving this type of problems 
+ */
+ 
+package algorithms;
 
 import org.junit.Test;
 import org.junit.runner.JUnitCore;

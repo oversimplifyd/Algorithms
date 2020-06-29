@@ -1,3 +1,20 @@
+/**
+Write a method to see if a binary tree ↴ is "superbalanced" (a new tree property we just made up).
+
+A tree is "superbalanced" if the difference between the depths of any two leaf nodes ↴ is no greater than one.
+
+Here's a sample binary tree node class:
+
+RunTime -> O(N) 
+Space ->    O(N) -> worstcase. For a linkedlist like structure. 
+            O(LogN) -> Avg case, for a tree structue 
+
+The basic idea is simply, if we have three ditinct integers representing the depth of a leaf node at any point in time, will be taken into the list. 
+- For a balaned tree the highest difference in depth mustn't be greater than 1 
+- If the list has mor ethan two distinct integers, it means we have a non-balacned tree.  [1, 2, 3]  -> 3 -1 = 2 ( > 1 )
+- if the tree has a length of 2 integers and the absolute difference between this two digit is > 1 we have a non-balanced tree  [1, 4] -> 4 -1 = 3 (> 1)
+ */
+ 
 package algorithms;
 
 import org.junit.Test;
@@ -47,7 +64,6 @@ public class CheckBalancedTree {
         }
     }
     
-    //O(n0 time O(nO space )
     public static boolean isBalanced(BinaryTreeNode treeRoot) {
         
         if (treeRoot == null) {

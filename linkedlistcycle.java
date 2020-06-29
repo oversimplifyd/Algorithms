@@ -1,3 +1,12 @@
+/**
+You have a singly-linked list ↴ and want to check if it contains a cycle.
+
+A singly-linked list is built with nodes, where each node has:
+
+node.next—the next node in the list.
+node.value—the data held in the node. For example, if our linked list stores people in line at the movies, node.value might be the person's name.
+
+ */
 package algorithms; 
 
 import org.junit.Test;

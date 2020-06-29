@@ -17,6 +17,13 @@ class BubbleSort {
     int largestItemIndex = 0; 
     int largestItem = items[0];
 
+    // {1, 3, 8, 9, 7, 6, 5, 2, 10}
+    // {1, 3, 8, 2, 7, 6, 5, 9, 10}
+    // {1, 3, 5, 2, 7, 6, 8, 9, 10}
+    // {1, 3, 5, 2, 6, 7, 8, 9, 10}
+    // {1, 3, 2, 5, 6, 7, 8, 9, 10}
+    // {1, 2, 3, 5, 6, 7, 8, 9, 10}
+    
     while (lastIndex > 0) {
       for (int i = 0; i <= lastIndex; i++) {
         if (items[i] >= largestItem) {

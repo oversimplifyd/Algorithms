@@ -119,3 +119,47 @@ class Solution {
     
   }
 }
+
+
+// C++ Implementation 
+
+// #import <iostream>
+// #import <vector>
+
+// using namespace std;
+
+// bool isToeplitz(const vector<vector<int>>& arr)
+// {
+//   if (arr.empty()) {
+//     return true;
+//   }
+  
+  
+//   for (size_t row = 0; row < arr.size(); ++row) {
+//     int value = arr[row][0];
+//     for (size_t delta = 0; row + delta < arr.size() && delta < arr[row].size(); ++delta) {
+//       if (arr[row + delta][delta] != value) {
+//         return false;
+//       }
+//     }
+//   }
+  
+//   for (size_t col = 0; col < arr[0].size(); ++row) {
+//     int value = arr[0][col];
+//     for (size_t delta = 0; col + delta < arr[0].size() && delta < arr.size(); ++delta) {
+//       if (arr[delta][col + delta] != value) {
+//         return false;
+//       }
+//     }
+//   }
+  
+//   return true;
+// }
+
+// int main() 
+// {
+// 	return 0;
+// }
+
+
+// // col [i, j], [i + 1, j + 1], [i + 2, j + 2]

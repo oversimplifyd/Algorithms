@@ -1,3 +1,9 @@
+/**
+Write a method kthToLastNode() that takes an integer kk and the headNode of a singly-linked list, and returns the kkth to last node in the list.
+
+Solved using fast and slow pointer 
+ */
+
 package algorithms;
 
 import org.junit.Test;
@@ -153,3 +159,4 @@ public class KthTolastNode {
         }
     }
 }
+

@@ -1,3 +1,9 @@
+/**
+You have an array of integers, and for each index you want to find the product of every integer except the integer at that index.
+
+Write a method getProductsOfAllIntsExceptAtIndex() that takes an array of integers and returns an array of the products.
+
+ */
 package algorithms;
 
 import org.junit.Test;
@@ -10,8 +16,6 @@ import static org.junit.Assert.*;
 public class ProductOfIntegers {
 
     public static int[] getProductsOfAllIntsExceptAtIndex(int[] intArray) {
-
-        // make an array of the products
         
         if (intArray.length < 2) {
             throw new IllegalArgumentException("Array not sufficient.");
