@@ -20,7 +20,7 @@ public class MackeChange {
 
         // O(nm)  -> Where N = amount and M = Denominations 
         // O(n) -> Space 
-        //This is a classic DB problem 
+        //This is a classic DP problem 
         //https://en.wikipedia.org/wiki/Change-making_problem
         
         //DP Table -> Bottom-up algorithm -> More explicit table structure 
