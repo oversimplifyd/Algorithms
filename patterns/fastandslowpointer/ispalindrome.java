@@ -4,6 +4,14 @@ package algorithms;
 Check if a LinkedLit is palindrome. 
 Runtime O(N) 
 Space O(1) 
+
+
+Common Usage
+- If there's a ycle 
+- Length of a cycle 
+- Start of a cycle 
+- middle node
+- kth to last node 
  */
 
 class ListNode {
