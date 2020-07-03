@@ -10,7 +10,7 @@ class LongestSubstringKDistinct {
     int max = 0; 
     int windowStart = 0; 
     Map<Character, Integer> characterFrequencyMap = new HashMap<Character, Integer>(); 
-
+    
     for (int windowEnd = 0; windowEnd < str.length(); windowEnd++) {
       
       char currentChar = str.charAt(windowEnd);
