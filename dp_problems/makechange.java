@@ -24,6 +24,18 @@ public class MackeChange {
         *           else 
         *               ways[coin][amount] = ways[coin - 1][amount] + ways[coin][amount - coin]
         * return ways[coin[coin.length - 1]][amount]
+
+        * Read & Understand the question
+        * Solve it by hand, look for patterns, then perhaps brute-force, try some DS 
+        * Draw out sample inputs, 
+        * Solve a smaller size of the problem 
+        * Litten to the interviewer, slow the eff down 
+        * Communicate your thought process. Take a brief time to think. 
+        * If you find a solution, look for a better one. 
+        * Think about edge cases 
+        * Run your solution on sample imputs
+
+        * BE CONFIDENT, STAY CONFIDENT
         */
 
         int[] waysToComputeSubProblemPerCoin = new int[amount + 1];
