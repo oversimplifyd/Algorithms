@@ -309,6 +309,84 @@ class SlidingWindow {
          return minSub == Integer.MAX_VALUE ? "" : s.substring(subStart, subEnd+1);
     }
 
+    public static int stringMatchPattern(String s, String pattern){
+
+         int windowStart = 0; 
+          Map<Character, Integer> charFreeqMap = new HashMap<>();
+
+          /**
+           * o n i o n i o n s p l 
+           * o n i o n 
+           * 
+           * o -> 2 
+           * n -> 2 
+           * i -> 1 
+           * o -> 1 
+           * s -> 1 
+           * 
+           * 
+           * 
+           * 
+           *  o n i o n i o n s p l 
+           * 
+           * o -> 2   -> 1   -> 0
+           * n -> 2   -> 1   -> 0 
+           * i -> 1   -> 0 
+           * s -> 1
+           * 
+           * 
+           * match = 5
+           */
+           int totalMatches = 0; 
+           int matches = 0; 
+           char[] stringChar = s.toCharArray();
+           char[] patternChar = pattern.toCharArray();
+
+           for (char c: patternChar) {
+               charFreeqMap.put(c, charFreeqMap.getOrDefault(c, 0) + 1);
+           }
+
+           for (int windowEnd = 0; windowEnd < stringChar.length; windowEnd++) {
+               char rightChar = stringChar[windowEnd];
+
+               if (charFreeqMap.containsKey(rightChar)) {
+                   charFreeqMap.put(rightChar, charFreeqMap.get(rightChar) - 1);
+                   if (charFreeqMap.get(rightChar) == 0) {
+                       matches++; 
+                   }
+               }
+
+               if (windowEnd - windowStart + 1 == patternChar.length) {
+
+                   if (matches == charFreeqMap.size() && isAMatch(windowStart, s, pattern)) {
+                       totalMatches++; 
+                   } 
+
+                   char leftChar = stringChar[windowStart];
+                   if (charFreeqMap.containsKey(leftChar)) {
+                       charFreeqMap.put(leftChar, charFreeqMap.get(leftChar) + 1);
+
+                       if (charFreeqMap.get(leftChar) > 0) {
+                           matches--; 
+                       }
+                   }
+
+                   windowStart++; 
+               }
+           }
+
+           return totalMatches;
+    }
+
+    private static boolean isAMatch(int start, String s, String pattern) {
+
+        for (int i = start; i < pattern.length() - start; i++) {
+            if (s.charAt(i) != pattern.charAt(i)) return false; 
+        }
+
+        return true; 
+    }
+
     public static void main(String[] args) {
         // int[] msa = {2,1,5,1,3,2};
         // int[] msa2 = {2, 3, 4, 1, 5};
@@ -320,12 +398,15 @@ class SlidingWindow {
 
         //System.out.println(substringKdistinctChars("cbbebi", 3));
 
+         // 0 0 0 0 0 
+         // 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
         //char[] a = {'A', 'B', 'C', 'B', 'B', 'C'};
         //System.out.println(fruitToBasket(a));
 
         char[] unChar = {'X', 'Y', 'Z'};
         String de = "xyyzyzyx";
 
-        System.out.println(getShortestUniqueSubstring(unChar, de));
+        System.out.println(stringMatchPattern("onionionsponions", "onions"));
     }
 }
