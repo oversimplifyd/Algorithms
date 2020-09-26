@@ -17,9 +17,7 @@ import java.util.Map;
 import static org.junit.Assert.*;
 
 public class FibSequence {
-    
-    static Map<Integer, Integer> resultSet = new HashMap<Integer, Integer>();
-    
+        
     //BottomUp Approach 
     public static int fib(int n) {
         
