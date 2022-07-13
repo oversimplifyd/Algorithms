@@ -6,20 +6,23 @@
  * Resources: 
  * https://www.geeksforgeeks.org/compressed-tries/
  * 
- *   the
- *   the | hourse | them | take | house | themes 
+ * This can be used to build a suffix tree to solve problems involving pattern searching such as: 
+ * - longest repeating substring, - longest palindromic substring etc. 
+ * It works by creating a possible suffixes of the given text terminated by a special character, 
+ * building a compressed trie of these suffixes (that is processed text) and doing a search for the pattern. 
  * 
- *   label -> t h e 
- *   word -> t h e m e
- *    
- *   t h e | t h e m | horse | take 
- *   t h e m 
- *                    
- *   root          [        t ]             [            the ]
- *     t           [   n m    ]             [    n  m        ]
- *     m           [  e       ]             [    e           ]
+ * e.g. 
+ * b a n a n a 
  * 
- *                 [        h ]             [    horse       ] 
+ * Suffixes: 
+ * b a n a n a!
+ *   a n a n a! 
+ *     n a n a! 
+ *       a n a! 
+ *         n a! 
+ *           a!
+ * 
+ * A compressed trie of this is then built, and pattern is searched from this afterwards.
  */
 
 class Solution {
