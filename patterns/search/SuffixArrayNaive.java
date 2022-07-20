@@ -42,7 +42,7 @@ import java.util.*;
     }
  }
 
- class SuffixArrayFirst {
+ class SuffixArrayNaive {
 
     private String[] unsortedSuffixArray; 
     private String[] sortedSuffixArray;
