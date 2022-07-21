@@ -1,7 +1,8 @@
 class Solutio {
     public static void main(String[] args) {
-        System.out.println(new Naive().search("", "banana"));
-        System.out.println(new Naive().search("ban", "banana"));
+        // System.out.println(new Naive().search("", "banana"));
+        // System.out.println(new Naive().search("ban", "banana"));
+        System.out.println(new RabinKarp().rabinKarp("banana", "nan"));
     }
 }
 
@@ -43,12 +44,12 @@ class RabinKarp {
      * c1...cm-1 are the characters.
      */
 
-     private boolean rabinKarp(String text, String pattern)
+     public boolean rabinKarp(String text, String pattern)
      {
         int pLength = pattern.length();
         int tLength = text.length();
 
-        int prime = 13; 
+        int constant = 7; 
         int q = 128;
 
         int pHash = 0; 
@@ -56,38 +57,36 @@ class RabinKarp {
 
         int multiplier = 1;
 
-        for (int i = 0; i < pLength - 1; i++) {
-            multiplier = (prime * multiplier) % q;
+        for (int i = 0; i < pLength- 1; i++) {
+            multiplier = (constant * multiplier) % q;
         }
 
-        for (int i = 0; i < pLength - 1; i++) {
-            int pDigit = pattern.charAt(i) - 'a';
-            int tDigit = text.charAt(i) - 'a';
-
-            pHash = pHash + (pDigit * (multiplier / prime));
-            tHash = tHash + (tDigit * (multiplier / prime));  // first pattern.length character in text. 
+        for (int i = 0; i < pLength; i++) {
+            pHash = (pHash*constant + pattern.charAt(i)) % q;
+            tHash = (tHash*constant + text.charAt(i)) % q;
         }
 
-        int windowStart = 0;
+        int j;
 
-        for (int windowEnd = pLength - 1; windowEnd < tLength; windowEnd++) {
+        for (int i = 0; i <= tLength - pLength; i++) {
             if (pHash == tHash) {
-                for (int j = 0; j < pLength; j++) {
-                    if (text.charAt(j+windowStart) != pattern.charAt(j+windowStart)) break; // no match.
+                for (j = 0; j < pLength; j++) {
+                    if (text.charAt(j+i) != pattern.charAt(j)) break; // no match.
                 }
 
-                return true; // returning the first occurence.
+                if (j == pLength) {
+                    return true; // returning the first occurence.
+                }
             }
 
-            int firstCharacter = text.charAt(windowStart) - 'a';
+            if (i < tLength - pLength) {
 
-            tHash = tHash - (firstCharacter * multiplier * prime);
+                tHash = (((tHash - text.charAt(i) * multiplier) * constant) + text.charAt(i+pLength)) % q;
 
-            if (windowEnd + 1 < pLength) {
-                tHash = tHash + (text.charAt(windowEnd) - 'a');
+                if (tHash < 0) {
+                    tHash = tHash + q;
+                }
             }
-
-            windowStart++;
         }
 
         return false;
