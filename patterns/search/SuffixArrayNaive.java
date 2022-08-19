@@ -47,7 +47,7 @@ import java.util.*;
     private String[] unsortedSuffixArray; 
     private String[] sortedSuffixArray;
 
-    private int[] sortedIndexes; 
+    private int[] suffixArrayIndexes; 
 
     private void preProcessText(String text){
 
@@ -56,7 +56,7 @@ import java.util.*;
 
         Arrays.sort(this.sortedSuffixArray); // N*K*LOGN
 
-        this.sortedIndexes = this.buildSuffixIndex();
+        this.suffixArrayIndexes = this.buildSuffixIndex();
     }
 
     private int[] buildSuffixIndex(){
@@ -92,14 +92,14 @@ import java.util.*;
     private boolean binarySearch(String pattern) {
 
         int  start = 0; 
-        int end = this.sortedIndexes.length - 1;
+        int end = this.suffixArrayIndexes.length - 1;
 
         while (start <= end) {
 
             // 5 3 1 0 4 2 
             int mid = start + ((end - start) / 2);
 
-            int currentIndex = this.sortedIndexes[mid];
+            int currentIndex = this.suffixArrayIndexes[mid];
 
             int compare = (this.unsortedSuffixArray[currentIndex]).compareToIgnoreCase(pattern);
             
