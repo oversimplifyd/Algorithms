@@ -2,6 +2,9 @@ import java.util.*;
 
 class Solution {
 
+    // Union runtime -> O(n ^ 2) 
+    // the Union Rank optimization improves this to (n * log n)
+    
     public static void main(String[] args) {
         List<Edge> edges = new ArrayList<>();
         
